@@ -20,6 +20,13 @@ It should be used as the active and owner keys when updating auth on accounts yo
 ## Functions
 
 <dl>
+<dt><a href="#injectAnalytics">injectAnalytics()</a></dt>
+<dd><p>Inject Vercel Web Analytics into the application.
+This function should be called in web applications that use this library.
+It is optional and only relevant when this library is used in a web context.</p>
+<p>Note: This is an async function because @vercel/analytics is an ES module.
+Use with await or .then() in your application.</p>
+</dd>
 <dt><a href="#setupTestChain">setupTestChain()</a></dt>
 <dd><p>Sets up the test chain docker image. Must be the first function called in your suite. Only call once</p>
 </dd>
@@ -151,6 +158,23 @@ This is the standard eosjs library at the core of this library. You have access 
 ```js
 eosjs.rpc.get_table_rows(...)
 eosjs.api.transact(...)
+```
+<a name="injectAnalytics"></a>
+
+## injectAnalytics()
+Inject Vercel Web Analytics into the application.
+This function should be called in web applications that use this library.
+It is optional and only relevant when this library is used in a web context.
+
+Note: This is an async function because @vercel/analytics is an ES module.
+Use with await or .then() in your application.
+
+**Kind**: global function  
+**Api**: public  
+**Example**  
+```js
+const { injectAnalytics } = require('@waxio/waxunit');
+await injectAnalytics();
 ```
 <a name="setupTestChain"></a>
 
